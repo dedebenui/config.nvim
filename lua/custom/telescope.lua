@@ -1,0 +1,52 @@
+local data = assert(vim.fn.stdpath "data") --[[@as string]]
+print(data)
+
+require("telescope").setup {
+    extensions = {
+        fzf = {},
+        wrap_results = true,
+        history = {
+            path = data .. "telescope_history.sqlite3",
+            limit = 100,
+        },
+    },
+}
+
+pcall(require("telescope").load_extension, "fzf")
+pcall(require("telescope").load_extension, "smart_history")
+
+local builtin = require "telescope.builtin"
+
+vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[f]ind [f]ile in project" })
+vim.keymap.set(
+    "n",
+    "<leader>fs",
+    builtin.lsp_document_symbols,
+    { desc = "[f]ind [s]ymbol in buffer" }
+)
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[f]ind nvim [h]elp tag" })
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[f]ind using rip[g]rep" })
+vim.keymap.set(
+    "n",
+    "<leader>fr",
+    builtin.lsp_references,
+    { desc = "[f]ind [r]eferences to symbol" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>/",
+    builtin.current_buffer_fuzzy_find,
+    { desc = "fuzzy search in buffer" }
+)
+
+vim.keymap.set("n", "<leader>gw", builtin.grep_string)
+
+vim.keymap.set("n", "<leader>fa", function()
+    ---@diagnostic disable-next-line: param-type-mismatch
+    builtin.find_files { cwd = vim.fs.joinpath(vim.fn.stdpath "data", "lazy") }
+end)
+
+-- Find neovim config files from anywhere:
+-- vim.keymap.set("n", "<leader>en", function()
+--     builtin.find_files { cwd = vim.fn.stdpath "config" }
+-- end)
