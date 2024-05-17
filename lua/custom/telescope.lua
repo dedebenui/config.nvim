@@ -23,7 +23,7 @@ vim.keymap.set(
     function() builtin.diagnostics { bufnr = 0 } end,
     { desc = "[f]ind [d]diagnostic in current buffer" }
 )
-vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[f]ind [f]ile in project" })
+vim.keymap.set("n", "<leader>fp", builtin.find_files, { desc = "[f]ind file in [p]roject" })
 vim.keymap.set(
     "n",
     "<leader>fs",
