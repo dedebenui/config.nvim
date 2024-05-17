@@ -12,6 +12,7 @@ opt.ignorecase = true
 ----- Personal Preferences -----
 opt.number = true
 opt.relativenumber = true
+opt.scrolloff = 8
 
 opt.splitbelow = true
 opt.splitright = true
