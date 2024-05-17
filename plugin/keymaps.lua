@@ -53,4 +53,4 @@ set("n", "<leader>w", "<CMD>w<CR>", { desc = "Write current buffer" })
 set("n", "<leader>qw", "<CMD>wqa<CR>", { desc = "Save all and exit" })
 
 -- RUN
-set("n", "<leader>rp", [[<CMD>!python "%"<CR>]], { desc = "Run python" })
+set("n", "<leader>rp", [[<CMD>w<CR><CMD>!python "%"<CR>]], { desc = "Run python" })

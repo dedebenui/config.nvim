@@ -58,6 +58,9 @@ vim.keymap.set("n", "<leader>gw", builtin.grep_string)
 -- end)
 
 -- Find neovim config files from anywhere:
--- vim.keymap.set("n", "<leader>en", function()
---     builtin.find_files { cwd = vim.fn.stdpath "config" }
--- end)
+vim.keymap.set(
+    "n",
+    "<leader>fc",
+    function() builtin.find_files { cwd = vim.fn.stdpath "config" } end,
+    { desc = "[f]ind [c]onfig file" }
+)
