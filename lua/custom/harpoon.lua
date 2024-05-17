@@ -1,4 +1,4 @@
-local harpoon = require("harpoon")
+local harpoon = require "harpoon"
 
 -- REQUIRED
 harpoon:setup()
@@ -17,6 +17,9 @@ vim.keymap.set("n", "<space>7", function() harpoon:list():select(7) end)
 vim.keymap.set("n", "<space>8", function() harpoon:list():select(8) end)
 vim.keymap.set("n", "<space>9", function() harpoon:list():select(9) end)
 
--- -- Toggle previous & next buffers stored within Harpoon list
--- vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
--- vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
+vim.keymap.set("n", "<leader>hr", function()
+    harpoon:list():select(1)
+    vim.cmd "vs"
+    harpoon:list():select(2)
+    vim.cmd "wincmd h"
+end, { desc = "recall Harpoon 1 and 2" })

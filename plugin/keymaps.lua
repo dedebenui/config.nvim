@@ -49,3 +49,4 @@ set("n", "<leader>sr", "<Cmd>noh<CR>", { desc = "reset search buffer highlight" 
 
 -- Save/quit
 set("n", "<leader>w", "<CMD>w<CR>", { desc = "Write current buffer" })
+set("n", "<leader>qw", "<CMD>wqa<CR>", { desc = "Save all and exit" })

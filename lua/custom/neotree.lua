@@ -28,4 +28,4 @@ vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSi
 vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
 vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
 
-vim.keymap.set("n", "<leader>e", "<CMD>Neotree reveal toggle<CR>", { desc = "NeoTree" })
+vim.keymap.set("n", "<leader>e", "<CMD>Neotree reveal toggle float<CR>", { desc = "NeoTree" })

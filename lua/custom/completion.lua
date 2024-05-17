@@ -15,7 +15,7 @@ cmp.setup {
     mapping = {
         ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
         ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
-        ["<C-y>"] = cmp.mapping(
+        ["<C-i>"] = cmp.mapping(
             cmp.mapping.confirm {
                 behavior = cmp.ConfirmBehavior.Insert,
                 select = true,
@@ -32,14 +32,6 @@ cmp.setup {
     },
 }
 
--- Setup up vim-dadbod
-cmp.setup.filetype({ "sql" }, {
-    sources = {
-        { name = "vim-dadbod-completion" },
-        { name = "buffer" },
-    },
-})
-
 local ls = require "luasnip"
 ls.config.set_config {
     history = false,
@@ -54,7 +46,7 @@ vim.keymap.set({ "i", "s" }, "<c-k>", function()
     if ls.expand_or_jumpable() then
         ls.expand_or_jump()
     end
-end, { silent = true })
+end, { silent = true, desc = "expand or jump in snippet" })
 
 vim.keymap.set({ "i", "s" }, "<c-j>", function()
     if ls.jumpable(-1) then
