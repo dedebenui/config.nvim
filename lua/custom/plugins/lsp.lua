@@ -79,9 +79,7 @@ return {
             require("mason-tool-installer").setup { ensure_installed = ensure_installed }
 
             for name, config in pairs(servers) do
-                if config == true then
-                    config = {}
-                end
+                if config == true then config = {} end
                 config = vim.tbl_deep_extend("force", {}, {
                     capabilities = capabilities,
                 }, config)
@@ -106,11 +104,14 @@ return {
                     vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = 0 })
                     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = 0 })
                     vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0 })
+                    vim.keymap.set("n", "g<C-j>", vim.diagnostic.goto_next)
+                    vim.keymap.set("n", "g<C-k>", vim.diagnostic.goto_prev)
                     vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
 
                     vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { buffer = 0 })
                     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = 0 })
 
+                    vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help)
                     local filetype = vim.bo[bufnr].filetype
                     if disable_semantic_tokens[filetype] then
                         client.server_capabilities.semanticTokensProvider = nil

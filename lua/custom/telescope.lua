@@ -2,6 +2,11 @@ local data = assert(vim.fn.stdpath "data") --[[@as string]]
 print(data)
 
 require("telescope").setup {
+    defaults = {
+        file_ignore_patterns = {
+            "Cargo.lock",
+        },
+    },
     extensions = {
         fzf = {},
         wrap_results = true,

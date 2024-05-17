@@ -29,6 +29,7 @@ set("v", "<leader>d", [["_d]])
 
 set("n", "Q", "<nop>")
 set("i", "kj", "<Esc>")
+set("i", "<C-d>", "<C-k>")
 
 -- Search/replace shortcuts
 set("n", "<leader>sa", "ggVG", { desc = "select all" })
@@ -50,3 +51,6 @@ set("n", "<leader>sr", "<Cmd>noh<CR>", { desc = "reset search buffer highlight" 
 -- Save/quit
 set("n", "<leader>w", "<CMD>w<CR>", { desc = "Write current buffer" })
 set("n", "<leader>qw", "<CMD>wqa<CR>", { desc = "Save all and exit" })
+
+-- RUN
+set("n", "<leader>rp", [[<CMD>!python "%"<CR>]], { desc = "Run python" })
