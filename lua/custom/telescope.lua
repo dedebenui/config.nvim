@@ -22,6 +22,7 @@ pcall(require("telescope").load_extension, "smart_history")
 
 local builtin = require "telescope.builtin"
 
+vim.keymap.set("n", "<leader>f?", builtin.resume, { desc = "resume last telescope" })
 vim.keymap.set(
     "n",
     "<leader>fc",

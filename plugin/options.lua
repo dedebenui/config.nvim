@@ -52,3 +52,7 @@ vim.api.nvim_create_autocmd("FileType", {
         end
     end,
 })
+
+---- .vim plugins ----
+vim.g.doge_doc_standard_python = "numpy"
+vim.g.doge_python_settings = { single_quotes = 0, omit_redundant_param_types = 0 }
