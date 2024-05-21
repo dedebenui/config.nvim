@@ -24,6 +24,12 @@ local builtin = require "telescope.builtin"
 
 vim.keymap.set(
     "n",
+    "<leader>fc",
+    function() builtin.find_files { cwd = vim.fn.stdpath "config" } end,
+    { desc = "[f]ind [c]onfig file" }
+)
+vim.keymap.set(
+    "n",
     "<leader>fd",
     function() builtin.diagnostics { bufnr = 0 } end,
     { desc = "[f]ind [d]diagnostic in current buffer" }
@@ -56,11 +62,3 @@ vim.keymap.set("n", "<leader>gw", builtin.grep_string)
 --     ---@diagnostic disable-next-line: param-type-mismatch
 --     builtin.find_files { cwd = vim.fs.joinpath(vim.fn.stdpath "data", "lazy") }
 -- end)
-
--- Find neovim config files from anywhere:
-vim.keymap.set(
-    "n",
-    "<leader>fc",
-    function() builtin.find_files { cwd = vim.fn.stdpath "config" } end,
-    { desc = "[f]ind [c]onfig file" }
-)

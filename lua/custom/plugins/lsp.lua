@@ -29,7 +29,6 @@ return {
 
             local servers = {
                 bashls = true,
-                gopls = true,
                 lua_ls = true,
                 rust_analyzer = true,
                 cssls = true,
