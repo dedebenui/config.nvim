@@ -5,6 +5,7 @@ return {
             "folke/neodev.nvim",
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
+            "SmiteshP/nvim-navic",
             "WhoIsSethDaniel/mason-tool-installer.nvim",
 
             { "j-hui/fidget.nvim", opts = {} },
@@ -97,6 +98,9 @@ return {
                         vim.lsp.get_client_by_id(args.data.client_id),
                         "must have valid client"
                     )
+                    if client.server_capabilities.documentSymbolProvider then
+                        require("nvim-navic").attach(client, bufnr)
+                    end
 
                     vim.opt_local.omnifunc = "v:lua.vim.lsp.omnifunc"
                     vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
