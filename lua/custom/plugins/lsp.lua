@@ -98,27 +98,51 @@ return {
                         vim.lsp.get_client_by_id(args.data.client_id),
                         "must have valid client"
                     )
-                    if client.server_capabilities.documentSymbolProvider then
+                    local cap = client.server_capabilities
+                    if cap == nil then return end
+
+                    if cap.documentSymbolProvider then
                         require("nvim-navic").attach(client, bufnr)
                     end
 
                     vim.opt_local.omnifunc = "v:lua.vim.lsp.omnifunc"
-                    vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
-                    vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = 0 })
-                    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = 0 })
-                    vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0 })
-                    vim.keymap.set("n", "g<C-j>", vim.diagnostic.goto_next)
-                    vim.keymap.set("n", "g<C-k>", vim.diagnostic.goto_prev)
-                    vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
+                    if cap.definitionProvider then
+                        vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = true })
+                    end
+                    if cap.referencesProvider then
+                        vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = true })
+                    end
+                    if cap.declarationProvider then
+                        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = true })
+                    end
+                    if cap.typeDefinitionProvider then
+                        vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = true })
+                    end
+                    if cap.hoverProvider then
+                        vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = true })
+                    end
+                    if cap.signatureHelpProvider then
+                        vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help)
+                    end
+                    if cap.renameProvider then
+                        vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { buffer = true })
+                    end
+                    if cap.codeActionProvider then
+                        vim.keymap.set(
+                            "n",
+                            "<leader>ca",
+                            vim.lsp.buf.code_action,
+                            { buffer = true }
+                        )
+                    end
 
-                    vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { buffer = 0 })
-                    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = 0 })
-
-                    vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help)
+                    vim.keymap.set("n", "g<C-j>", vim.diagnostic.goto_next, { buffer = true })
+                    vim.keymap.set("n", "g<C-k>", vim.diagnostic.goto_prev, { buffer = true })
                     local filetype = vim.bo[bufnr].filetype
                     if disable_semantic_tokens[filetype] then
                         client.server_capabilities.semanticTokensProvider = nil
                     end
+                    vim.print(client.name)
                 end,
             })
 
