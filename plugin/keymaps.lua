@@ -54,3 +54,15 @@ set("n", "<leader>qw", "<CMD>wqa<CR>", { desc = "Save all and exit" })
 
 -- RUN
 set("n", "<leader>rp", [[<CMD>w<CR><CMD>!python "%"<CR>]], { desc = "Run python" })
+
+--- LSP ---
+set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+set("n", "gr", vim.lsp.buf.references, { desc = "Show references" })
+set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
+set("n", "gT", vim.lsp.buf.type_definition, { desc = "Go to type definition" })
+set("n", "g<C-j>", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
+set("n", "g<C-k>", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
+set("n", "K", vim.lsp.buf.hover, { desc = "Hover help" })
+set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol" })
+set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
+set("i", "<C-h>", vim.lsp.buf.signature_help, { desc = "Signature help" })
