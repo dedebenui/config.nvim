@@ -6,6 +6,10 @@ local s = ls.snippet
 local i = ls.insert_node
 local t = ls.text_node
 
-local fmt = require("luasnip.extras.fmt").fmt
-
-ls.add_snippets("python", { s("LOL", { t "def main" }) })
+ls.add_snippets("python", {
+    s("main", {
+        t { "def main():", "   " },
+        i(0),
+        t { "", "", [[if __name__ == "__main__":]], "    main()" },
+    }),
+})

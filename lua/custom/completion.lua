@@ -35,6 +35,7 @@ local ls = require "luasnip"
 ls.config.set_config {
     history = false,
     updateevents = "TextChanged,TextChangedI",
+    enable_autosnippets = true,
 }
 
 for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/custom/snippets/*.lua", true)) do

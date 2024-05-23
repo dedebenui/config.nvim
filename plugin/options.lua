@@ -43,13 +43,13 @@ vim.api.nvim_create_autocmd("FileType", {
             "typst",
         } do
             if lang == vim.bo.filetype then
-                vim.opt.wrap = true
-                vim.opt.colorcolumn = ""
+                opt.wrap = true
+                opt.colorcolumn = ""
                 return
             end
-            vim.opt.colorcolumn = "101"
-            vim.opt.wrap = false
         end
+        opt.colorcolumn = "101"
+        opt.wrap = false
     end,
 })
 

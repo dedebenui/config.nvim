@@ -1,7 +1,7 @@
 local harpoon = require "harpoon"
 
 -- REQUIRED
-harpoon:setup()
+harpoon:setup { settings = { save_on_toggle = true } }
 -- REQUIRED
 
 vim.keymap.set("n", "<leader>ha", function() harpoon:list():add() end)
@@ -19,7 +19,8 @@ vim.keymap.set("n", "<space>9", function() harpoon:list():select(9) end)
 
 vim.keymap.set("n", "<leader>hr", function()
     harpoon:list():select(1)
+    vim.cmd "e"
     vim.cmd "vs"
     harpoon:list():select(2)
-    vim.cmd "wincmd h"
+    vim.cmd "e"
 end, { desc = "recall Harpoon 1 and 2" })
