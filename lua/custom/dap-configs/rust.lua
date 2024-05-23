@@ -3,7 +3,7 @@ local dap = require "dap"
 dap.adapters.lldb = {
     type = "server",
     port = "${port}",
-    executable = { command = "codelldb", args = { "--port", "${port}" } },
+    executable = { command = "codelldb", args = { "--port", "${port}" }, detached = false },
     name = "lldb",
 }
 
