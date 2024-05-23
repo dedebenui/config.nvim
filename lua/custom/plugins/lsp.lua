@@ -58,6 +58,7 @@ return {
                     init_options = { clangdFileStatus = true },
                     filetypes = { "c" },
                 },
+                ltex = { settings = { ltex = {} } },
             }
 
             local servers_to_install = vim.tbl_filter(function(key)
