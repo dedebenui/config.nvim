@@ -26,9 +26,7 @@ cmp.setup {
 
     -- Enable luasnip to handle snippet expansion for nvim-cmp
     snippet = {
-        expand = function(args)
-            require("luasnip").lsp_expand(args.body)
-        end,
+        expand = function(args) require("luasnip").lsp_expand(args.body) end,
     },
 }
 
@@ -43,13 +41,9 @@ for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/custom/snippets/*.lu
 end
 
 vim.keymap.set({ "i", "s" }, "<c-k>", function()
-    if ls.expand_or_jumpable() then
-        ls.expand_or_jump()
-    end
+    if ls.expand_or_jumpable() then ls.expand_or_jump() end
 end, { silent = true, desc = "expand or jump in snippet" })
 
 vim.keymap.set({ "i", "s" }, "<c-j>", function()
-    if ls.jumpable(-1) then
-        ls.jump(-1)
-    end
+    if ls.jumpable(-1) then ls.jump(-1) end
 end, { silent = true })

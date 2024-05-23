@@ -4,41 +4,9 @@ local ui = require "dapui"
 require("dapui").setup()
 require("nvim-dap-virtual-text").setup()
 
-dap.adapters.python = function(cb, config)
-    if config.request == "attach" then
-        ---@diagnostic disable-next-line: undefined-field
-        local port = (config.connect or config).port
-        ---@diagnostic disable-next-line: undefined-field
-        local host = (config.connect or config).host or "127.0.0.1"
-        cb {
-            type = "server",
-            port = assert(port, "`connect.port` is required for a python `attach` configuration"),
-            host = host,
-            options = {
-                source_filetype = "python",
-            },
-        }
-    else
-        cb {
-            type = "executable",
-            command = "python",
-            args = { "-m", "debugpy.adapter" },
-            options = {
-                source_filetype = "python",
-            },
-        }
-    end
+for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/custom/dap-configs/*.lua", true)) do
+    loadfile(ft_path)()
 end
-dap.configurations.python = {
-    {
-        -- The first three options are required by nvim-dap
-        type = "python", -- the type here established the link to the adapter definition: `dap.adapters.python`
-        request = "launch",
-        name = "Launch file",
-        -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
-        program = "${file}", -- This configuration will launch the current file if used.
-    },
-}
 
 vim.keymap.set("n", "<space>b", dap.toggle_breakpoint)
 vim.keymap.set("n", "<space>gb", dap.run_to_cursor)

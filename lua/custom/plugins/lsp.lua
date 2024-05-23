@@ -73,6 +73,8 @@ return {
             local ensure_installed = {
                 "stylua",
                 "lua_ls",
+                "codelldb",
+                "cpptools",
             }
 
             vim.list_extend(ensure_installed, servers_to_install)
