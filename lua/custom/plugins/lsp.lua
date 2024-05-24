@@ -53,12 +53,19 @@ return {
                 },
 
                 clangd = {
-                    -- TODO: Could include cmd, but not sure those were all relevant flags.
-                    --    looks like something i would have added while i was floundering
                     init_options = { clangdFileStatus = true },
                     filetypes = { "c" },
                 },
-                ltex = { settings = { ltex = {} } },
+                ltex = {
+                    filetype = {
+                        "gitcommit",
+                        "latex",
+                        "markdown",
+                        "tex",
+                        "text",
+                        "typst",
+                    },
+                },
             }
 
             local servers_to_install = vim.tbl_filter(function(key)
