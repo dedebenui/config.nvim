@@ -24,4 +24,13 @@ ls.add_snippets("tex", {
         i(0),
         t { "", [[\end{equation}]] },
     }),
+    s("figure", {
+        t { [[\begin{figure}]], [[   \centering]], [[   \includegraphics[width=0.95\linewidth]{]] },
+        i(1),
+        t { [[}]], [[    \caption{]] },
+        i(0),
+        t { [[}]], [[    \label{fig:]] },
+        i(2),
+        t { [[}]], [[\end{figure}]] },
+    }),
 })
