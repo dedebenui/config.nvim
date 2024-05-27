@@ -53,8 +53,8 @@ set("n", "<leader>w", "<CMD>w<CR>", { desc = "Write current buffer" })
 set("n", "<leader>qw", "<CMD>wqa<CR>", { desc = "Save all and exit" })
 
 -- RUN
-set("n", "<leader>rp", [[<CMD>w<CR><CMD>!python "%"<CR>]], { desc = "Run python" })
-set("n", "<leader>rl", [[<CMD>w<CR><CMD>!latexmk<CR>]], { desc = "Run LaTeX" })
+set("n", "<leader>rp", [[<CMD>w<CR><CMD>!python "%"<CR><CR>]], { desc = "Run python" })
+set("n", "<leader>rl", [[<CMD>w<CR><CMD>!latexmk<CR><CR>]], { desc = "Run LaTeX" })
 
 --- LSP ---
 set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })

@@ -15,10 +15,24 @@ require("neo-tree").setup {
             leave_dirs_open = false,
         },
     },
+    commands = {
+        system_open = function(state)
+            local node = state.tree:get_node()
+            local path = node:get_id()
+            if path == nil then return end
+            vim.print(path)
+            vim.fn.jobstart({ "/usr/bin/open", path }, { detach = true })
+        end,
+    },
     filesystem = {
         hide_gitignored = false,
         never_show = {
             ".DS_Store",
+        },
+        window = {
+            mappings = {
+                ["s"] = "system_open",
+            },
         },
     },
 }
