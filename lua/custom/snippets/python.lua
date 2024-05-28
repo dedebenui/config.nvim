@@ -7,7 +7,7 @@ local i = ls.insert_node
 local t = ls.text_node
 
 ls.add_snippets("python", {
-    s("main", {
+    s("main()", {
         t { "def main():", "   " },
         i(0),
         t { "", "", [[if __name__ == "__main__":]], "    main()" },

@@ -13,6 +13,7 @@ opt.ignorecase = true
 opt.number = true
 opt.relativenumber = true
 opt.scrolloff = 8
+opt.equalalways = true
 
 opt.splitbelow = true
 opt.splitright = true
