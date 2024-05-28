@@ -13,7 +13,7 @@ local function copy_text(args) return args[1][1] end
 local function copy_node(args) return sn(nil, { i(1, args[1]) }) end
 
 ls.add_snippets("tex", {
-    s("begin", {
+    s("\\begin", {
         t [[\begin{]],
         i(1),
         t { "}", "    " },
@@ -22,12 +22,12 @@ ls.add_snippets("tex", {
         f(copy_text, { 1 }),
         t { "}", "" },
     }),
-    s("equation", {
+    s("\\equation", {
         t { [[\begin{equation}]], "    " },
         i(0),
         t { "", [[\end{equation}]] },
     }),
-    s("figure", {
+    s("\\figure", {
         t { [[\begin{figure}]], [[   \centering]], [[   \includegraphics[width=0.95\linewidth]{]] },
         i(1),
         t { [[}]], [[    \caption{]] },
@@ -36,7 +36,7 @@ ls.add_snippets("tex", {
         i(2),
         t { [[}]], [[\end{figure}]] },
     }),
-    s("acronym", {
+    s("\\acronym", {
         t [[\DeclareAcronym{]],
         i(1),
         t { [[}{]], [[   short = ]] },
@@ -44,5 +44,10 @@ ls.add_snippets("tex", {
         t { [[ ,]], [[   long = ]] },
         i(3),
         t { "", [[}]] },
+    }),
+    s("fig", {
+        t [[Fig.~\ref{]],
+        i(1),
+        t [[}]],
     }),
 })

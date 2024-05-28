@@ -52,10 +52,6 @@ set("n", "<leader>sr", "<Cmd>noh<CR>", { desc = "reset search buffer highlight" 
 set("n", "<leader>w", "<CMD>w<CR>", { desc = "Write current buffer" })
 set("n", "<leader>qw", "<CMD>wqa<CR>", { desc = "Save all and exit" })
 
--- RUN
-set("n", "<leader>rp", [[<CMD>w<CR><CMD>!python "%"<CR><CR>]], { desc = "Run python" })
-set("n", "<leader>rl", [[<CMD>w<CR><CMD>!latexmk<CR><CR>]], { desc = "Run LaTeX" })
-
 --- LSP ---
 set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 set("n", "gr", vim.lsp.buf.references, { desc = "Show references" })
@@ -67,3 +63,21 @@ set("n", "K", vim.lsp.buf.hover, { desc = "Hover help" })
 set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol" })
 set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
 set("i", "<C-h>", vim.lsp.buf.signature_help, { desc = "Signature help" })
+
+--- RUN ---
+local function conclude(obj)
+    if obj.code ~= 0 then
+        vim.notify(obj.stderr, vim.log.levels.ERROR)
+    else
+        vim.notify(obj.stdout, vim.log.levels.INFO)
+    end
+end
+
+local function run_python()
+    vim.cmd "w"
+    local obj = vim.system({ "python", vim.fn.expand "%" }, { text = true }):wait()
+    conclude(obj)
+end
+
+set("n", "<leader>rp", run_python, { desc = "Run python" })
+set("n", "<leader>rl", [[<CMD>w<CR><CMD>!latexmk<CR><CR>]], { desc = "Run LaTeX" })
