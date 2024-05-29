@@ -30,9 +30,29 @@ return {
 
             local servers = {
                 bashls = true,
-                lua_ls = true,
-                rust_analyzer = true,
+                clangd = {
+                    init_options = { clangdFileStatus = true },
+                    filetypes = { "c" },
+                },
                 cssls = true,
+                ltex = {
+                    filetype = {
+                        "gitcommit",
+                        "latex",
+                        "markdown",
+                        "tex",
+                        "text",
+                        "typst",
+                    },
+                },
+                lua_ls = true,
+                nushell = {
+                    manual_install = true,
+                    filetype = { "nu" },
+                    cmd = { "nu", "--lsp" },
+                    root_dir = lspconfig.util.find_git_ancestor,
+                    single_file_support = true,
+                },
                 pyright = { settings = { python = { analysis = { typeCheckingMode = "off" } } } },
                 ruff_lsp = {
                     on_attach = function(client, _)
@@ -42,6 +62,7 @@ return {
                         end
                     end,
                 },
+                rust_analyzer = true,
                 taplo = {
                     settings = {
                         evenBetterToml = {
@@ -49,21 +70,6 @@ return {
                                 catalogs = { "https://taplo.tamasfe.dev/schema_index.json" },
                             },
                         },
-                    },
-                },
-
-                clangd = {
-                    init_options = { clangdFileStatus = true },
-                    filetypes = { "c" },
-                },
-                ltex = {
-                    filetype = {
-                        "gitcommit",
-                        "latex",
-                        "markdown",
-                        "tex",
-                        "text",
-                        "typst",
                     },
                 },
                 texlab = true,
