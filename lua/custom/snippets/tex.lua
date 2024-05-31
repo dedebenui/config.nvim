@@ -26,7 +26,7 @@ end
 
 local snips = {
     SNIPPET("\\begin", {
-        t "\begin{",
+        t "\\begin{",
         i(1),
         t { "}", "    " },
         i(0),
@@ -35,12 +35,12 @@ local snips = {
         t { "}", "" },
     }),
     SNIPPET("begeq", {
-        t { "\begin{equation}", "    " },
+        t { "\\begin{equation}", "    " },
         i(0),
         t { "", "\\end{equation}" },
     }),
     SNIPPET("begfig", {
-        t { "\begin{figure}", "   \\centering", "   \\includegraphics[width=0.95\\linewidth]{" },
+        t { "\\begin{figure}", "   \\centering", "   \\includegraphics[width=0.95\\linewidth]{" },
         i(1),
         t { "}", "    \\caption{" },
         i(0),

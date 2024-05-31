@@ -5,3 +5,6 @@ require("toggleterm").setup {
         border = "curved",
     },
 }
+
+-- local bufs = vim.iter(vim.api.nvim_list_bufs())
+--     :filter(function(nr) vim.print(vim.api.nvim_buf_get_name(nr)) end)
