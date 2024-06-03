@@ -34,12 +34,12 @@ local snips = {
         f(copy_text, { 1 }),
         t { "}", "" },
     }),
-    SNIPPET("begeq", {
+    SNIPPET("equation", {
         t { "\\begin{equation}", "    " },
         i(0),
         t { "", "\\end{equation}" },
     }),
-    SNIPPET("begfig", {
+    SNIPPET("figure", {
         t { "\\begin{figure}", "   \\centering", "   \\includegraphics[width=0.95\\linewidth]{" },
         i(1),
         t { "}", "    \\caption{" },
@@ -86,12 +86,19 @@ local snips = {
             sn(nil, { t "\\left\\{", r(1, "content"), t "\\right\\}" }),
         }),
     }, { stored = { ["content"] = i(1) } }),
-    SNIPPET({ trig = "tsi", name = "SI unit" }, {
+    SNIPPET({ trig = "SI", name = "SI unit" }, {
         t "$\\SI{",
         i(1),
         t "}{",
         i(2),
         t "}$",
+    }),
+    SNIPPET("frac", {
+        t "\\frac{",
+        i(1),
+        t "}{",
+        i(2),
+        t "}",
     }),
 }
 
