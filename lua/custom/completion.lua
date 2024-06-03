@@ -8,7 +8,6 @@ local cmp = require "cmp"
 
 cmp.setup {
     sources = {
-        { name = "cmdline" },
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "path" },

@@ -58,7 +58,7 @@ local snips = {
         t { "", "}" },
     }),
     SNIPPET("fig", {
-        t "Fig.~\ref{",
+        t "Fig.~\\ref{",
         i(1),
         t "}",
     }),
