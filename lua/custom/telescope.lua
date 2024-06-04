@@ -43,6 +43,12 @@ vim.keymap.set(
     { desc = "[f]ind [s]ymbol in buffer" }
 )
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[f]ind using rip[g]rep" })
+vim.keymap.set(
+    "n",
+    "<leader>fw",
+    function() builtin.live_grep { additional_args = { "-w" }, prompt_title = "Find word" } end,
+    { desc = "[f]ind [w] using ripgrep" }
+)
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[f]ind nvim [h]elp tag" })
 vim.keymap.set(
     "n",
