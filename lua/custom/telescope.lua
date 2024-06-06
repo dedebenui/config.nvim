@@ -32,7 +32,7 @@ vim.keymap.set(
 vim.keymap.set(
     "n",
     "<leader>fd",
-    function() builtin.diagnostics { bufnr = 0 } end,
+    function() builtin.diagnostics { bufnr = 0, initial_mode = "normal" } end,
     { desc = "[f]ind [d]diagnostic in current buffer" }
 )
 vim.keymap.set("n", "<leader>fp", builtin.find_files, { desc = "[f]ind file in [p]roject" })
@@ -43,6 +43,12 @@ vim.keymap.set(
     { desc = "[f]ind [s]ymbol in buffer" }
 )
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[f]ind using rip[g]rep" })
+vim.keymap.set(
+    "n",
+    "<leader>ft",
+    function() require("telescope").extensions["todo-comments"].todo { initial_mode = "normal" } end,
+    { desc = "[f]ind [T]odo" }
+)
 vim.keymap.set(
     "n",
     "<leader>fw",
