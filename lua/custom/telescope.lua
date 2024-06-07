@@ -19,10 +19,17 @@ require("telescope").setup {
 
 pcall(require("telescope").load_extension, "fzf")
 pcall(require("telescope").load_extension, "smart_history")
+pcall(require("telescope").load_extension, "dap")
 
 local builtin = require "telescope.builtin"
 
 vim.keymap.set("n", "<leader>f?", builtin.resume, { desc = "resume last telescope" })
+vim.keymap.set(
+    "n",
+    "<leader>fb",
+    function() require("telescope").extensions.dap.list_breakpoints { initial_mode = "normal" } end,
+    { desc = "[F]ind [B]reakpoints" }
+)
 vim.keymap.set(
     "n",
     "<leader>fc",
@@ -35,14 +42,21 @@ vim.keymap.set(
     function() builtin.diagnostics { bufnr = 0, initial_mode = "normal" } end,
     { desc = "[f]ind [d]diagnostic in current buffer" }
 )
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[f]ind using rip[g]rep" })
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[f]ind nvim [h]elp tag" })
 vim.keymap.set("n", "<leader>fp", builtin.find_files, { desc = "[f]ind file in [p]roject" })
+vim.keymap.set(
+    "n",
+    "<leader>fr",
+    builtin.lsp_references,
+    { desc = "[f]ind [r]eferences to symbol" }
+)
 vim.keymap.set(
     "n",
     "<leader>fs",
     builtin.lsp_document_symbols,
     { desc = "[f]ind [s]ymbol in buffer" }
 )
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[f]ind using rip[g]rep" })
 vim.keymap.set(
     "n",
     "<leader>ft",
@@ -54,13 +68,6 @@ vim.keymap.set(
     "<leader>fw",
     function() builtin.live_grep { additional_args = { "-w" }, prompt_title = "Find word" } end,
     { desc = "[f]ind [w] using ripgrep" }
-)
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[f]ind nvim [h]elp tag" })
-vim.keymap.set(
-    "n",
-    "<leader>fr",
-    builtin.lsp_references,
-    { desc = "[f]ind [r]eferences to symbol" }
 )
 vim.keymap.set(
     "n",

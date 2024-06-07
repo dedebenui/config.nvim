@@ -33,11 +33,13 @@ dap.configurations.python = {
         -- adapter-spcific options:
         program = "${file}",
         cwd = function()
-            return vim.fn.input {
+            local project_dir = vim.fn.input {
                 prompt = "Working directory: ",
                 default = vim.fn.getcwd() .. "/",
                 completion = "dir",
             }
+            if project_dir == nil or project_dir == "" then return dap.ABORT end
+            return project_dir
         end,
     },
 }
