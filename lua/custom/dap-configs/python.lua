@@ -1,5 +1,34 @@
 local dap = require "dap"
 
+---get arguments one by one from the user.
+---Remembers the last one given per buffer
+local function get_args()
+    local prev_args = vim.b.python_dap_args or {}
+    local args = {}
+    local i = 1
+    local canceled = false
+    while true do
+        vim.ui.input({
+            prompt = "Arguments: ",
+            default = prev_args[i] or "",
+        }, function(input)
+            if input == nil then
+                canceled = true
+                return
+            end
+            args[i] = input
+        end)
+        if canceled then return nil end
+        if args[i] == "" then
+            args[i] = nil
+            break
+        end
+        i = i + 1
+    end
+    vim.b.python_dap_args = args
+    return args
+end
+
 dap.adapters.python = function(cb, config)
     if config.request == "attach" then
         ---@diagnostic disable-next-line: undefined-field
@@ -41,5 +70,6 @@ dap.configurations.python = {
             if project_dir == nil or project_dir == "" then return dap.ABORT end
             return project_dir
         end,
+        args = function() return get_args() or dap.ABORT end,
     },
 }
