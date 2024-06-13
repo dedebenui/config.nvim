@@ -1,3 +1,5 @@
+Greatly inspired from [TJ's config](https://github.com/tjdevries/config.nvim).
+
 This config needs a few external tools to work properly:
 
 - `bibtool` (not supported by Mason)
