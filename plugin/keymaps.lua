@@ -19,8 +19,8 @@ set("n", "<C-i>", "<C-i>zz", { desc = "center view when jumping ahead" })
 set("n", "G", "Gzz", { desc = "center view when jumping to bottom of buffer" })
 set("n", "n", "nzzzv")
 set("n", "N", "Nzzzv")
-set("n", "j", "gj")
-set("n", "k", "gk")
+set({ "n", "v" }, "j", "gj")
+set({ "n", "v" }, "k", "gk")
 
 -- Delete/paste without messing current register
 set("v", "<leader>p", [["_dP]])

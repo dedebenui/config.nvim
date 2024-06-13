@@ -8,6 +8,7 @@ local cmp = require "cmp"
 
 cmp.setup {
     sources = {
+        { name = "calc" },
         { name = "nvim_lsp" },
         { name = "luasnip" },
         {
@@ -16,7 +17,6 @@ cmp.setup {
                 get_cwd = function() return vim.fn.getcwd() end,
             },
         },
-        { name = "calc" },
         { name = "buffer" },
     },
     mapping = {
