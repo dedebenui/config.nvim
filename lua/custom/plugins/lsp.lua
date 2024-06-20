@@ -56,6 +56,11 @@ return {
                     },
                 },
                 ruff = {
+                    -- cmd = {
+                    --     vim.fn.expand "~/localcode/ruff/target/release/ruff",
+                    --     "server",
+                    --     "--preview",
+                    -- },
                     on_attach = function(client, _)
                         if client.name == "ruff" then
                             -- Disable hover in favor of Pyright
