@@ -49,10 +49,15 @@ return {
                     root_dir = lspconfig.util.find_git_ancestor,
                     single_file_support = true,
                 },
-                pyright = { settings = { python = { analysis = { typeCheckingMode = "off" } } } },
-                ruff_lsp = {
+                pyright = {
+                    settings = {
+                        pyright = { disableOrganizeImports = true },
+                        python = { analysis = { ignore = { "*" } } },
+                    },
+                },
+                ruff = {
                     on_attach = function(client, _)
-                        if client.name == "ruff_lsp" then
+                        if client.name == "ruff" then
                             -- Disable hover in favor of Pyright
                             client.server_capabilities.hoverProvider = false
                         end
