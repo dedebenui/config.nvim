@@ -3,4 +3,4 @@ require("nvim-treesitter.configs").setup {
     highlight = { enable = true },
 }
 
-vim.cmd ":TSUpdate"
+vim.cmd [[:silent exec "TSUpdate"]]
