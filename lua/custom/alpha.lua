@@ -40,7 +40,7 @@ dashboard.section.buttons.val = {
     dashboard.button("f", "󰍉  > Find file", ":Telescope find_files<CR>"),
     dashboard.button(
         "h",
-        "󰀱  > Find file",
+        "󰀱  > Harpoon",
         [[:lua require("harpoon.ui"):toggle_quick_menu(require("harpoon"):list())<CR>]]
     ),
     dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
