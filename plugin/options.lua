@@ -29,6 +29,7 @@ opt.expandtab = true
 -- opt.textwidth = 100
 
 opt.smartindent = true
+opt.breakindent = true
 opt.linebreak = true
 opt.clipboard = nil
 
