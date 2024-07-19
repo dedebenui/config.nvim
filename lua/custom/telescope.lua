@@ -82,3 +82,8 @@ vim.keymap.set("n", "<leader>gw", builtin.grep_string)
 --     ---@diagnostic disable-next-line: param-type-mismatch
 --     builtin.find_files { cwd = vim.fs.joinpath(vim.fn.stdpath "data", "lazy") }
 -- end)
+
+vim.api.nvim_create_autocmd("User", {
+    pattern = "TelescopePreviewerLoaded",
+    callback = function() vim.wo.wrap = true end,
+})
