@@ -12,4 +12,7 @@ ls.add_snippets("python", {
         i(0),
         t { "", "", [[if __name__ == "__main__":]], "    main()" },
     }),
+    s("creator", {
+        t "metadata=dict(Creator=os.fspath(Path(__file__).resolve()))",
+    }),
 })
