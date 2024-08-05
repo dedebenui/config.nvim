@@ -103,6 +103,7 @@ local snips = {
 }
 
 ls.add_snippets("tex", snips)
+ls.add_snippets("plaintex", snips)
 vim.keymap.set(
     { "i", "v" },
     "<C-l>",

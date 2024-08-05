@@ -26,6 +26,12 @@ local builtin = require "telescope.builtin"
 vim.keymap.set("n", "<leader>f?", builtin.resume, { desc = "resume last telescope" })
 vim.keymap.set(
     "n",
+    "<leader>fa",
+    function() builtin.find_files { no_ignore = true, follow = true } end,
+    { desc = "[f]ind file amongs [a]ll files" }
+)
+vim.keymap.set(
+    "n",
     "<leader>fb",
     function() require("telescope").extensions.dap.list_breakpoints { initial_mode = "normal" } end,
     { desc = "[F]ind [B]reakpoints" }
@@ -66,7 +72,7 @@ vim.keymap.set(
 vim.keymap.set(
     "n",
     "<leader>fw",
-    function() builtin.live_grep { additional_args = { "-w" }, prompt_title = "Find word" } end,
+    function() builtin.live_grep { additional_argg = { "-w" }, prompt_title = "Find word" } end,
     { desc = "[f]ind [w] using ripgrep" }
 )
 vim.keymap.set(
