@@ -1,14 +1,13 @@
 require("conform").setup {
-    formatters = {
-        bibtool = {
-            command = "bibtool",
-            args = { "-s" },
-        },
-    },
+    -- formatters = {
+    --     bibtool = {
+    --         command = "bibtool",
+    --         args = { "-s" },
+    --     },
+    -- },
     formatters_by_ft = {
         lua = { "stylua" },
         tex = { "latexindent" },
-        bib = { "bibtool" },
     },
 }
 
