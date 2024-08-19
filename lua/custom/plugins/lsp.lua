@@ -37,6 +37,7 @@ return {
                         "latex",
                         "markdown",
                         "tex",
+                        "plaintex",
                         "text",
                         "typst",
                     },
@@ -52,7 +53,7 @@ return {
                 pyright = {
                     settings = {
                         pyright = { disableOrganizeImports = true },
-                        python = { analysis = { typeCheckingMode = "off", ignore = { "*" } } },
+                        python = { analysis = { typeCheckingMode = "off" } },
                     },
                 },
                 ruff = {
