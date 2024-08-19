@@ -49,6 +49,7 @@ vim.api.nvim_create_autocmd("FileType", {
             if lang == vim.bo.filetype then
                 opt.wrap = true
                 opt.colorcolumn = ""
+                opt.smoothscroll = true
                 return
             end
         end

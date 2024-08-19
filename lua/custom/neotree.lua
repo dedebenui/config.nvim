@@ -27,7 +27,7 @@ require("neo-tree").setup {
     filesystem = {
         filtered_items = {
             never_show = { ".DS_Store" },
-            always_show = { "main.pdf" },
+            always_show = { "main.pdf", ".gitignore" },
         },
         window = {
             mappings = {

@@ -52,15 +52,20 @@ local snips = {
         t "\\DeclareAcronym{",
         i(1),
         t { "}{", "   short = " },
-        d(2, copy_node, { 1 }),
+        d(3, copy_node, { 1 }),
         t { " ,", "   long = " },
-        i(3),
+        i(2),
         t { "", "}" },
     }),
     SNIPPET("fig", {
-        t "Fig.~\\ref{",
+        t "Fig.~\\ref{fig:",
         i(1),
         t "}",
+    }),
+    SNIPPET("eqref", {
+        t "Eq.~(\\ref{eq:",
+        i(1),
+        t "})",
     }),
     SNIPPET("mathrm", {
         i(1),
