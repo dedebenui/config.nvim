@@ -97,6 +97,7 @@ return {
                 "lua_ls",
                 "codelldb",
                 "cpptools",
+                "tinymist",
             }
 
             vim.list_extend(ensure_installed, servers_to_install)
