@@ -49,7 +49,7 @@ set("n", "<leader>su", [[_"9yy"9pv$r-]], { desc = "underline current line with d
 set("n", "<leader>sr", "<Cmd>noh<CR>", { desc = "reset search buffer highlight" })
 
 -- Save/quit
-set("n", "<leader>w", "<CMD>w<CR>", { desc = "Write current buffer" })
+set("n", "<leader>w", "<CMD>wa<CR>", { desc = "Write all buffers" })
 set("n", "<leader>qw", "<CMD>wqa<CR>", { desc = "Save all and exit" })
 
 --- LSP ---
