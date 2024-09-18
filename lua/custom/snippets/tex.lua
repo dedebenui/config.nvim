@@ -40,7 +40,7 @@ local snips = {
         t { "", "\\end{equation}" },
     }),
     SNIPPET("figure", {
-        t { "\\begin{figure}", "   \\centering", "   \\includegraphics[width=0.95\\linewidth]{" },
+        t { "\\begin{figure}", "   \\centering", "   \\includegraphics[width=\\linewidth]{" },
         i(1),
         t { "}", "    \\caption{" },
         i(0),

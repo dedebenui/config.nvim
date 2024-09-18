@@ -54,7 +54,7 @@ vim.keymap.set("n", "<leader>fp", builtin.find_files, { desc = "[f]ind file in [
 vim.keymap.set(
     "n",
     "<leader>fr",
-    builtin.lsp_references,
+    function() builtin.lsp_references { initial_mode = "normal" } end,
     { desc = "[f]ind [r]eferences to symbol" }
 )
 vim.keymap.set(

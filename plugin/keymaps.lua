@@ -47,6 +47,8 @@ set(
 )
 set("n", "<leader>su", [[_"9yy"9pv$r-]], { desc = "underline current line with dashes" })
 set("n", "<leader>sr", "<Cmd>noh<CR>", { desc = "reset search buffer highlight" })
+set("n", "<leader>a", "ea")
+set("n", "<leader>A", "$i")
 
 -- Save/quit
 set("n", "<leader>w", "<CMD>wa<CR>", { desc = "Write all buffers" })
