@@ -26,6 +26,7 @@ return {
 
             local servers = {
                 bashls = true,
+                sourcekit = { cmd = { "sourcekit-lsp" }, manual_install = true },
                 clangd = {
                     init_options = { clangdFileStatus = true },
                     filetypes = { "c" },
