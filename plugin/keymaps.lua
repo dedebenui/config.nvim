@@ -77,7 +77,7 @@ end
 
 local function run_python()
     vim.cmd "w"
-    local obj = vim.system({ "python", vim.fn.expand "%" }, { text = true }):wait()
+    local obj = vim.system({ "uv", "run", vim.fn.expand "%" }, { text = true }):wait()
     conclude(obj)
 end
 

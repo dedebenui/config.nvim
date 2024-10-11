@@ -54,7 +54,12 @@ return {
                 pyright = {
                     settings = {
                         pyright = { disableOrganizeImports = true },
-                        python = { analysis = { typeCheckingMode = "off" } },
+                        python = {
+                            analysis = { typeCheckingMode = "off" },
+                            exclude = { ".venv" },
+                            venvPath = ".",
+                            venv = ".venv",
+                        },
                     },
                 },
                 ruff = {
