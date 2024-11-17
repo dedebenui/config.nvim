@@ -61,3 +61,6 @@ vim.api.nvim_create_autocmd("FileType", {
 ---- .vim plugins ----
 vim.g.doge_doc_standard_python = "numpy"
 vim.g.doge_python_settings = { single_quotes = 0, omit_redundant_param_types = 0 }
+
+--- file types ---
+vim.filetype.add { extension = { jinja = "jinja", j2 = "jinja", jinja2 = "jinja" } }

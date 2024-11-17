@@ -81,5 +81,11 @@ local function run_python()
     conclude(obj)
 end
 
+local function compile_typst()
+    vim.cmd "w"
+    local obj = vim.system({ "typst", "compile", vim.fn.expand "%" }, { text = true }):wait()
+    conclude(obj)
+end
 set("n", "<leader>rp", run_python, { desc = "Run python" })
+set("n", "<leader>rt", compile_typst, { desc = "Run python" })
 set("n", "<leader>rl", [[<CMD>w<CR><CMD>!latexmk<CR><CR>]], { desc = "Run LaTeX" })

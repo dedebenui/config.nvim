@@ -46,8 +46,8 @@ dap.adapters.python = function(cb, config)
     else
         cb {
             type = "executable",
-            command = "python",
-            args = { "-m", "debugpy.adapter" },
+            command = "uv",
+            args = { "run", "python", "-m", "debugpy.adapter" },
             options = {
                 source_filetype = "python",
             },
