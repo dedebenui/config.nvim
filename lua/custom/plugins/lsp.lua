@@ -39,7 +39,6 @@ return {
                         "tex",
                         "plaintex",
                         "text",
-                        "typst",
                     },
                 },
                 lua_ls = true,
