@@ -72,7 +72,7 @@ vim.keymap.set(
 vim.keymap.set(
     "n",
     "<leader>fw",
-    function() builtin.live_grep { additional_argg = { "-w" }, prompt_title = "Find word" } end,
+    function() builtin.live_grep { additional_args = { "-w" }, prompt_title = "Find word" } end,
     { desc = "[f]ind [w] using ripgrep" }
 )
 vim.keymap.set(
