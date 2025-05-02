@@ -1,12 +1,6 @@
 local data = assert(vim.fn.stdpath "data") --[[@as string]]
 
 require("telescope").setup {
-    defaults = {
-        file_ignore_patterns = {
-            "Cargo.lock",
-            ".git/*",
-        },
-    },
     extensions = {
         fzf = {},
         wrap_results = true,
@@ -27,7 +21,7 @@ vim.keymap.set("n", "<leader>f?", builtin.resume, { desc = "resume last telescop
 vim.keymap.set(
     "n",
     "<leader>fa",
-    function() builtin.find_files { no_ignore = true, follow = true } end,
+    function() builtin.find_files { hidden = true, no_ignore = true, follow = true } end,
     { desc = "[f]ind file amongs [a]ll files" }
 )
 vim.keymap.set(
@@ -53,7 +47,11 @@ vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[f]ind nvim [h]el
 vim.keymap.set(
     "n",
     "<leader>fp",
-    function() builtin.find_files { hidden = true } end,
+    function()
+        builtin.find_files {
+            find_command = { "rg", "--hidden", "-g", "!.git/*", "--files", "--color", "never" },
+        }
+    end,
     { desc = "[f]ind file in [p]roject" }
 )
 vim.keymap.set(

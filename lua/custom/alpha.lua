@@ -40,7 +40,7 @@ dashboard.section.buttons.val = {
     dashboard.button(
         "f",
         "󰍉  > Find file",
-        [[:lua require("telescope.builtin").find_files { hidden = true }<CR>]]
+        [[:lua require"telescope.builtin".find_files({ find_command = { "rg", "--hidden", "-g", "!.git/*", "--files", "--color", "never" }})<CR>]]
     ),
     dashboard.button("n", "  > New file", ":ene <BAR> startinsert <CR>"),
     dashboard.button(
