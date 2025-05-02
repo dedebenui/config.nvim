@@ -70,3 +70,4 @@ end
 set_options()
 
 vim.api.nvim_create_user_command("SetOpts", set_options, {})
+vim.diagnostic.config { virtual_lines = { current_line = true }, virtual_text = false }

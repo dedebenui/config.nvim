@@ -59,11 +59,18 @@ set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 set("n", "gr", vim.lsp.buf.references, { desc = "Show references" })
 set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
 set("n", "gT", vim.lsp.buf.type_definition, { desc = "Go to type definition" })
-set("n", "g<C-j>", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
-set("n", "g<C-k>", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
+set("n", "gf", vim.diagnostic.open_float, { desc = "Go to type definition" })
+set("n", "g<C-j>", function() vim.diagnostic.jump { count = 1 } end, { desc = "Next diagnostic" })
+set(
+    "n",
+    "g<C-k>",
+    function() vim.diagnostic.jump { count = -1 } end,
+    { desc = "Previous diagnostic" }
+)
 set("n", "K", vim.lsp.buf.hover, { desc = "Hover help" })
-set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol" })
-set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
+set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "[R]ename symbol" })
+set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [a]ction" })
+set("n", "<leader>cf", require("neogen").generate, { desc = "Generate [f]unction annotations" })
 set("i", "<C-h>", vim.lsp.buf.signature_help, { desc = "Signature help" })
 
 --- RUN ---
