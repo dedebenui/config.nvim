@@ -1,10 +1,10 @@
 local data = assert(vim.fn.stdpath "data") --[[@as string]]
-print(data)
 
 require("telescope").setup {
     defaults = {
         file_ignore_patterns = {
             "Cargo.lock",
+            ".git/*",
         },
     },
     extensions = {
@@ -50,7 +50,12 @@ vim.keymap.set(
 )
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[f]ind using rip[g]rep" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[f]ind nvim [h]elp tag" })
-vim.keymap.set("n", "<leader>fp", builtin.find_files, { desc = "[f]ind file in [p]roject" })
+vim.keymap.set(
+    "n",
+    "<leader>fp",
+    function() builtin.find_files { hidden = true } end,
+    { desc = "[f]ind file in [p]roject" }
+)
 vim.keymap.set(
     "n",
     "<leader>fr",
