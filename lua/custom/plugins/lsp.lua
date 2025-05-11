@@ -54,8 +54,8 @@ return {
                 },
                 basedpyright = {
                     settings = {
-                        basedpyright = { disableOrganizeImports = true },
-                        python = {
+                        basedpyright = {
+                            disableOrganizeImports = true,
                             analysis = { typeCheckingMode = "off" },
                             exclude = { { ".venv" } },
                             venvPath = ".",
