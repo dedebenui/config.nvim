@@ -47,26 +47,23 @@ return {
                     manual_install = true,
                     filetype = { "nu" },
                     cmd = { "nu", "--lsp" },
-                    root_dir = lspconfig.util.find_git_ancestor,
+                    root_dir = vim.fs.dirname(
+                        vim.fs.find(".git", { path = "./", upward = true })[1]
+                    ),
                     single_file_support = true,
                 },
-                pyright = {
+                basedpyright = {
                     settings = {
-                        pyright = { disableOrganizeImports = true },
+                        basedpyright = { disableOrganizeImports = true },
                         python = {
                             analysis = { typeCheckingMode = "off" },
-                            exclude = { ".venv" },
+                            exclude = { { ".venv" } },
                             venvPath = ".",
                             venv = ".venv",
                         },
                     },
                 },
                 ruff = {
-                    -- cmd = {
-                    --     vim.fn.expand "~/localcode/ruff/target/release/ruff",
-                    --     "server",
-                    --     "--preview",
-                    -- },
                     on_attach = function(client, _)
                         if client.name == "ruff" then
                             -- Disable hover in favor of Pyright
