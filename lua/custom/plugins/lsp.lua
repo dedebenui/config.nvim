@@ -83,6 +83,7 @@ return {
                 },
                 texlab = true,
                 tinymist = true,
+                jsonls = true,
             }
 
             local servers_to_install = vim.tbl_filter(function(key)
