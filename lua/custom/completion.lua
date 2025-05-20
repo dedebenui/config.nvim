@@ -9,6 +9,7 @@ local cmp = require "cmp"
 cmp.setup {
     sources = {
         { name = "calc" },
+        { name = "lazydev" },
         { name = "nvim_lsp" },
         { name = "luasnip" },
         {
