@@ -1,3 +1,5 @@
+vim.lsp.enable { "python" }
+
 return {
     {
         "neovim/nvim-lspconfig",
@@ -52,17 +54,17 @@ return {
                     ),
                     single_file_support = true,
                 },
-                basedpyright = {
-                    settings = {
-                        basedpyright = {
-                            disableOrganizeImports = true,
-                            analysis = { typeCheckingMode = "off" },
-                            exclude = { { ".venv" } },
-                            venvPath = ".",
-                            venv = ".venv",
-                        },
-                    },
-                },
+                -- basedpyright = {
+                --     settings = {
+                --         basedpyright = {
+                --             disableOrganizeImports = true,
+                --             analysis = { typeCheckingMode = "off" },
+                --             exclude = { { ".venv" } },
+                --             venvPath = ".",
+                --             venv = ".venv",
+                --         },
+                --     },
+                -- },
                 ruff = {
                     on_attach = function(client, _)
                         if client.name == "ruff" then
@@ -91,6 +93,7 @@ return {
                 jsonls = true,
             }
 
+            require("mason").setup()
             local servers_to_install = vim.tbl_filter(function(key)
                 local t = servers[key]
                 if type(t) == "table" then
@@ -100,17 +103,7 @@ return {
                 end
             end, vim.tbl_keys(servers))
 
-            require("mason").setup()
-            local ensure_installed = {
-                "stylua",
-                "lua_ls",
-                "codelldb",
-                "cpptools",
-                "tinymist",
-            }
-
-            vim.list_extend(ensure_installed, servers_to_install)
-            require("mason-tool-installer").setup { ensure_installed = ensure_installed }
+            require("mason-tool-installer").setup { ensure_installed = servers_to_install }
 
             for name, config in pairs(servers) do
                 if config == true then config = {} end
