@@ -82,7 +82,12 @@ return {
                     },
                 },
                 texlab = true,
-                tinymist = true,
+                tinymist = {
+                    settings = {
+                        formatterMode = "typstyle",
+                        exportPdf = "onSave",
+                    },
+                },
                 jsonls = true,
             }
 
