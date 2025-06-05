@@ -23,4 +23,18 @@ dap.configurations.rust = {
         cwd = "${workspaceFolder}",
         stopOnEntry = false,
     },
+    {
+        name = "run-main",
+        type = "lldb",
+        request = "launch",
+        program = "./target/debug/nu",
+        args = {
+            "-n",
+            "--no-std-lib",
+            "-c",
+            "1e32",
+        },
+        cwd = "${workspaceFolder}",
+        stopOnEntry = false,
+    },
 }

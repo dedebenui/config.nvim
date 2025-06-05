@@ -59,7 +59,7 @@ set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 set("n", "gr", vim.lsp.buf.references, { desc = "Show references" })
 set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
 set("n", "gT", vim.lsp.buf.type_definition, { desc = "Go to type definition" })
-set("n", "gf", vim.diagnostic.open_float, { desc = "Go to type definition" })
+set("n", "gf", vim.diagnostic.open_float, { desc = "Open float" })
 set("n", "g<C-j>", function() vim.diagnostic.jump { count = 1 } end, { desc = "Next diagnostic" })
 set(
     "n",

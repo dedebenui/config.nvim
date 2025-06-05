@@ -1,5 +1,6 @@
 vim.lsp.enable {
     "basedpyright",
+    "clangd",
     "css-ls",
     "json-ls",
     "ltex",

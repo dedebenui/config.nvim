@@ -20,12 +20,13 @@ vim.keymap.set("n", "<F3>", dap.step_over)
 vim.keymap.set("n", "<F4>", dap.step_out)
 vim.keymap.set("n", "<F5>", dap.step_back)
 vim.keymap.set("n", "<F8>", dap.restart)
-vim.keymap.set("n", "<F12>", dap.terminate)
+vim.keymap.set("n", "<F12>", function()
+    dap.terminate()
+    ui.close()
+end)
 
 dap.listeners.before.attach.dapui_config = function() ui.open() end
 dap.listeners.before.launch.dapui_config = function() ui.open() end
-dap.listeners.before.event_terminated.dapui_config = function() ui.close() end
-dap.listeners.before.event_exited.dapui_config = function() ui.close() end
 
 vim.api.nvim_set_hl(0, "DapBreakpoint", { ctermbg = 0, fg = "#ff0000", bg = "" })
 vim.fn.sign_define(
